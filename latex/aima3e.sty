@@ -283,7 +283,7 @@
   \fi
   \secdef\@part\@spart}
 
-\def\@part[#1]#2{\ifnum \c@secnumdepth >-2\relax
+\def\@part#1#2{\ifnum \c@secnumdepth >-2\relax
         \refstepcounter{part}%
 
         \addcontentslinenopage{toc}{part}{\thepart
@@ -342,7 +342,7 @@
    \@afterindentfalse
    \secdef\@chapter\@schapter}
 
-\def\@chapter[#1]#2{\ifnum \c@secnumdepth >\m@ne
+\def\@chapter#1#2{\ifnum \c@secnumdepth >\m@ne
         \refstepcounter{chapter}%
         \typeout{\@chapapp\space\thechapter.}%
         \addcontentsline{toc}{chapter}{\protect
@@ -450,7 +450,7 @@ items in the bibliography.}
 
 %%% redefined \@sect and \@ssect (ie \section*) from latex.tex
 
-\def\@sect#1#2#3#4#5#6[#7]#8{\ifnum #2>\c@secnumdepth
+\def\@sect#1#2#3#4#5#6#7#8{\ifnum #2>\c@secnumdepth
      \let\@svsec\@empty\else
      \refstepcounter{#1}\edef\@svsec{\csname the#1\endcsname\hskip 1em}\fi
      \@tempskipa #5\relax
@@ -593,9 +593,9 @@ items in the bibliography.}
 \def\newterm{\@ifnextchar[{\newtermopt}{\newtermnoopt}}
 \def\newtermi{\@ifnextchar[{\newtermiopt}{\newterminoopt}}
 \def\newtermnoopt#1{\newtermopt[#1]{#1}}
-\def\newtermopt[#1]#2{{\bfseries #2}\marginalnote{#1}}
+\def\newtermopt#1#2{{\bfseries #2}\marginalnote{#1}}
 \def\newterminoopt#1{\newtermiopt[#1]{#1}}
-\def\newtermiopt[#1]#2{{\bfseries #2}\marginalnote{#1}\ntindex{#1}}
+\def\newtermiopt#1#2{{\bfseries #2}\marginalnote{#1}\ntindex{#1}}
 
 \newcommand{\marginalnote}[1]{\yesmarginalnote{#1}}
 
